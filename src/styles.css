@@ -1,13 +1,17 @@
+#root {
+  max-height: 95vh;
+}
 .App {
   font-family: sans-serif;
-  max-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 8px;
+  overflow-y: auto;
 }
 .word-cloud {
-  height: 400px;
+  flex-basis: 400px;
+  flex-shrink: 0;
   width: 100%;
   border: 2px dashed gray;
   border-radius: 8px;

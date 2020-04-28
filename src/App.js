@@ -11,7 +11,7 @@ export const API_URL = "http://localhost:4001";
 /**
  * either use 'http' or 'socket'
  */
-export const PROTOCOL = 'http';
+export const PROTOCOL = 'socket';
 
 export default class App extends React.Component {
   state = {
@@ -27,6 +27,8 @@ export default class App extends React.Component {
         this.socket = socketioClient(API_URL);
         this.socket.on("word_data", data => this.setState({ words: data }));
         break;
+      default:
+        return;
     }
   }
 
@@ -43,6 +45,8 @@ export default class App extends React.Component {
       case 'socket':
         this.socket.emit("add_word", word);
         break;
+      default:
+        return;
     }
   };
 
