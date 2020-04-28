@@ -74,6 +74,11 @@ export default class App extends React.Component {
         </h1>
         <Wordcloud words={this.state.words} />
         <WordForm addWord={this.addWord} />
+        {
+          /* only show the refresh button when http-protocol is used */
+          PROTOCOL === 'socket' &&
+          <button title="Clear" onClick={() => this.socket.emit('clear')}>🗑️</button>
+        }
         <Eventlog words={this.state.words} />
       </div>
     );
